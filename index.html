@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deep Value Alpha</title>
+  <meta name="description" content="Independent research on undervalued opportunities and macro trends. Stock pitches, deep value analysis, and market insights.">
+  <meta name="author" content="Deep Value Alpha">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Deep Value Alpha">
+  <meta property="og:description" content="Independent research on undervalued opportunities and macro trends.">
+  <meta property="og:image" content="/images/hero.jpeg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Deep Value Alpha">
+  <meta name="twitter:description" content="Independent research on undervalued opportunities and macro trends.">
+  <meta name="twitter:image" content="/images/hero.jpeg">
+
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    // Apply saved theme immediately to prevent flash
+    (function() {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <button class="alpha-btn" id="alphaBtn">click here for alpha</button>
+    <div class="loader-container" id="loaderContainer">
+      <svg class="ring-svg" viewBox="0 0 200 200" id="ringSvg"></svg>
+      <div class="percentage" id="percentage">0%</div>
+      <div class="loader-text">LOADING SERIOUS ALPHA</div>
+    </div>
+  </div>
+
+  <!-- Main Feed -->
+  <div class="feed-page" id="feedPage">
+    <header class="header">
+      <div class="header-content">
+        <h1 class="site-title">Deep Value Alpha</h1>
+        <p class="site-subtitle">Independent research on undervalued opportunities and macro trends.</p>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="sun-icon">&#9788;</span>
+        <span class="moon-icon">&#9790;</span>
+      </button>
+    </header>
+
+    <section class="featured-section" id="featuredSection"></section>
+
+    <main class="feed-columns">
+      <section class="column" id="stockPitchesColumn">
+        <h2 class="column-heading">Stock Pitches</h2>
+        <div class="cards-container" id="stockPitchesCards"></div>
+      </section>
+      <section class="column" id="macroColumn">
+        <h2 class="column-heading">Macro / Other</h2>
+        <div class="cards-container" id="macroCards"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+      <div class="modal-controls">
+        <button class="modal-fullscreen" id="modalFullscreen" aria-label="Fullscreen">&#x26F6;</button>
+        <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
