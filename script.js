@@ -132,7 +132,7 @@ function createFeaturedCard(article) {
   card.setAttribute('data-id', article.id);
 
   card.innerHTML = `
-    <div class="featured-badge">Must Read</div>
+    <div class="featured-badge">PINNED</div>
     <div class="featured-content">
       <h3 class="featured-title">${article.title}</h3>
       <p class="featured-preview">${article.preview}</p>
