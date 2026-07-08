@@ -11,11 +11,6 @@ const ringSvg = document.getElementById('ringSvg');
 const percentageEl = document.getElementById('percentage');
 const feedPage = document.getElementById('feedPage');
 const themeToggle = document.getElementById('themeToggle');
-const modalOverlay = document.getElementById('modalOverlay');
-const modal = document.getElementById('modal');
-const modalClose = document.getElementById('modalClose');
-const modalFullscreen = document.getElementById('modalFullscreen');
-const modalContent = document.getElementById('modalContent');
 const stockPitchesCards = document.getElementById('stockPitchesCards');
 const macroCards = document.getElementById('macroCards');
 
@@ -118,8 +113,6 @@ function createCard(article) {
   card.addEventListener('click', () => {
     if (article.link) {
       window.open(article.link, '_blank');
-    } else {
-      openModal(article);
     }
   });
   return card;
@@ -143,8 +136,6 @@ function createFeaturedCard(article) {
   card.addEventListener('click', () => {
     if (article.link) {
       window.open(article.link, '_blank');
-    } else {
-      openModal(article);
     }
   });
   return card;
@@ -177,34 +168,6 @@ function renderArticles() {
   macro.forEach(article => {
     macroCards.appendChild(createCard(article));
   });
-}
-
-// Modal functions
-function openModal(article) {
-  let imageHtml = '';
-  if (article.image) {
-    imageHtml = `<img class="modal-image" src="${article.image}" alt="${article.title}">`;
-  }
-
-  modalContent.innerHTML = `
-    ${imageHtml}
-    <h1 class="modal-title">${article.title}</h1>
-    <div class="modal-date">${formatDate(article.date)}</div>
-    <div class="modal-body">${article.body}</div>
-  `;
-
-  modalOverlay.classList.add('visible');
-  document.body.classList.add('modal-open');
-}
-
-function closeModal() {
-  modalOverlay.classList.remove('visible');
-  modalOverlay.classList.remove('fullscreen');
-  document.body.classList.remove('modal-open');
-}
-
-function toggleFullscreen() {
-  modalOverlay.classList.toggle('fullscreen');
 }
 
 // Theme toggle
@@ -245,20 +208,6 @@ async function loadArticles() {
 // Event listeners
 alphaBtn.addEventListener('click', startLoading);
 themeToggle.addEventListener('click', toggleTheme);
-modalClose.addEventListener('click', closeModal);
-modalFullscreen.addEventListener('click', toggleFullscreen);
-
-modalOverlay.addEventListener('click', (e) => {
-  if (e.target === modalOverlay) {
-    closeModal();
-  }
-});
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && modalOverlay.classList.contains('visible')) {
-    closeModal();
-  }
-});
 
 // Initialize
 initRing();
