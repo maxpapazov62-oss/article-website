@@ -48,7 +48,7 @@ body {
   position: fixed;
   inset: 0;
   background: #0a0a0a;
-  background-image: url('/images/hero.jpeg');
+  background-image: url('/images/loading.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
