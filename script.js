@@ -1,5 +1,5 @@
 // Configuration
-const LOAD_DURATION_MS = 2500;
+const LOAD_DURATION_MS = 700;
 const SEGMENT_COUNT = 24;
 const HOLD_DURATION_MS = 400;
 
