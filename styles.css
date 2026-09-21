@@ -69,7 +69,10 @@ body {
 }
 
 .alpha-btn {
-  position: relative;
+  position: absolute;
+  top: 26%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 2;
   background: rgba(255, 255, 255, 0.9);
   border: none;
@@ -82,7 +85,6 @@ body {
   text-transform: lowercase;
   transition: all 0.15s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  margin-top: 20px;
 }
 
 .alpha-btn:hover {
@@ -93,7 +95,7 @@ body {
 .alpha-btn:active {
   background: #ffffff;
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 2px 8px rgba(0, 0, 0, 0.2);
-  transform: scale(0.98);
+  transform: translate(-50%, -50%) scale(0.98);
 }
 
 .alpha-btn.hidden {
