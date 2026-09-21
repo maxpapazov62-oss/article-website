@@ -48,6 +48,11 @@ body {
   position: fixed;
   inset: 0;
   background: #0a0a0a;
+  /* Entire image stretched to fill the entire screen: no cropping, no bars. */
+  background-image: url('/images/loading.jpg');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,35 +60,6 @@ body {
   overflow: hidden;
   z-index: 1000;
   transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-/* Blurred fill: same photo scaled to cover the whole screen, so there are
-   never black bars behind the full image. */
-.loading-screen::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('/images/loading.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: blur(28px) brightness(0.6);
-  transform: scale(1.12);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Full image, entirely visible (contain), centered on top of the blur. */
-.loading-screen::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('/images/loading.jpg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  pointer-events: none;
-  z-index: 1;
 }
 
 .loading-screen.hidden {
