@@ -48,10 +48,10 @@ body {
   position: fixed;
   inset: 0;
   background: #0a0a0a;
-  /* Entire image stretched to fill the entire screen: no cropping, no bars. */
+  /* Fill the entire screen at the image's true proportions (no distortion). */
   background-image: url('/images/loading.jpg');
-  background-size: 100% 100%;
-  background-position: center;
+  background-size: cover;
+  background-position: center 62%;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
