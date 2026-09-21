@@ -48,31 +48,42 @@ body {
   position: fixed;
   inset: 0;
   background: #0a0a0a;
-  background-image: url('/images/loading-16x9.jpg'); /* desktop: 16:9 crop */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   z-index: 1000;
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* Mobile / portrait screens: use the 9:16 crop so it fills the screen */
-@media (orientation: portrait) {
-  .loading-screen {
-    background-image: url('/images/loading-9x16.jpg');
-  }
-}
-
+/* Blurred fill: same photo scaled to cover the whole screen, so there are
+   never black bars behind the full image. */
 .loading-screen::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.25);
+  background-image: url('/images/loading.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(28px) brightness(0.6);
+  transform: scale(1.12);
   pointer-events: none;
+  z-index: 0;
+}
+
+/* Full image, entirely visible (contain), centered on top of the blur. */
+.loading-screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/loading.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .loading-screen.hidden {
@@ -83,7 +94,7 @@ body {
 
 .alpha-btn {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   background: rgba(255, 255, 255, 0.9);
   border: none;
   color: #1a1a1a;
@@ -118,7 +129,7 @@ body {
   flex-direction: column;
   align-items: center;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   padding: 40px;
   background: rgba(0, 0, 0, 0.4);
   border-radius: 12px;
