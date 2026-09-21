@@ -49,8 +49,8 @@ body {
   inset: 0;
   background: #0a0a0a;
   background-image: url('/images/loading.jpg');
-  background-size: contain;
-  background-position: center;
+  background-size: cover;
+  background-position: center 67%;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
