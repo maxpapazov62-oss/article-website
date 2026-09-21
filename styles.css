@@ -48,8 +48,8 @@ body {
   position: fixed;
   inset: 0;
   background: #0a0a0a;
-  background-image: url('/images/loading.jpg');
-  background-size: contain;
+  background-image: url('/images/loading-16x9.jpg'); /* desktop: 16:9 crop */
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
@@ -58,6 +58,13 @@ body {
   justify-content: center;
   z-index: 1000;
   transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Mobile / portrait screens: use the 9:16 crop so it fills the screen */
+@media (orientation: portrait) {
+  .loading-screen {
+    background-image: url('/images/loading-9x16.jpg');
+  }
 }
 
 .loading-screen::before {
